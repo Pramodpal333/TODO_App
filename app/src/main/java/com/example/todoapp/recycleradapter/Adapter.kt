@@ -14,6 +14,9 @@ import com.example.todoapp.R
 
 class Adapter(private val task:List<EachTask>) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
 
+    var onClick : ((EachTask) -> Unit)? = null
+
+
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var title : TextView = itemView.findViewById(R.id.title)
         var priority : TextView = itemView.findViewById(R.id.priority)
@@ -27,8 +30,6 @@ class Adapter(private val task:List<EachTask>) : RecyclerView.Adapter<Adapter.My
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-
-
         val item = task[position]
         holder.title.text = item.taskTitle
         holder.priority.text = item.taskPriority
@@ -41,10 +42,20 @@ class Adapter(private val task:List<EachTask>) : RecyclerView.Adapter<Adapter.My
             "medium" -> holder.cardBg.setCardBackgroundColor(ContextCompat.getColor(holder.cardBg.context, R.color.medium))
 
         }
+
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(item)
+        }
+
     }
 
     override fun getItemCount(): Int {
        return task.size
     }
 
+}
+
+
+interface recyclerItem{
+    fun onItemClicked(view: View)
 }

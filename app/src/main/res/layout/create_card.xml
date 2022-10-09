@@ -3,14 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
-    android:padding="20dp">
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +44,7 @@
                 android:padding="15dp"
                 android:background="@drawable/custom_edittetext"
                 android:textColorHint="#BFBBBB"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 />
 
             <EditText
@@ -58,8 +56,16 @@
                 android:padding="15dp"
                 android:background="@drawable/custom_edittetext"
                 android:textColorHint="#BFBBBB"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 />
+            <TextView
+                android:id="@+id/tvAlertPriority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:text="Alert: Set Priority as 'High' or 'Medium' or 'Low' "
+                android:textColor="#FB0505"
+                android:visibility="gone"/>
 
 
 
