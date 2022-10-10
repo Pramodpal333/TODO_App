@@ -21,6 +21,7 @@ class Adapter(private val task:List<EachTask>) : RecyclerView.Adapter<Adapter.My
         var title : TextView = itemView.findViewById(R.id.title)
         var priority : TextView = itemView.findViewById(R.id.priority)
         var cardBg : CardView = itemView.findViewById(R.id.cvPriority)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -45,6 +46,7 @@ class Adapter(private val task:List<EachTask>) : RecyclerView.Adapter<Adapter.My
 
         holder.itemView.setOnClickListener {
             onClick?.invoke(item)
+
         }
 
     }
