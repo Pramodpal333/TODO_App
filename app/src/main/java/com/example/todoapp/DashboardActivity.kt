@@ -81,15 +81,18 @@ class DashboardActivity : AppCompatActivity() {
 //        list of Task Initialization ends
 
 
-       // rvTaskArray.add(EachTask("Bath", "High"))
+       rvTaskArray.add(EachTask("Bath", "High"))
+       rvTaskArray.add(EachTask("Bath", "Low"))
+       rvTaskArray.add(EachTask("Bath", "Medium"))
 
+        recyclerView.adapter = myAdapter
 
         emptyImageShow(rvTaskArray)
         refreshRecycler()
 
         ivDeleteAll.setOnClickListener {
             rvTaskArray.clear()
-            recyclerView.adapter = myAdapter
+           refreshRecycler()
             emptyImageShow(rvTaskArray)
         }
 
@@ -169,10 +172,12 @@ class DashboardActivity : AppCompatActivity() {
 
 
                 btnDelete.setOnClickListener {
-                    if (rvTaskArray.size == 0){
-
-                    } else {
+                     if (rvTaskArray.size > 0){
+                         Log.i("SIZE","Size is ${rvTaskArray.size} & index clicked is $index")
                         rvTaskArray.removeAt(index)
+                         updateDial.dismiss()
+                        refreshRecycler()
+                         emptyImageShow(rvTaskArray)
                     }
                 }
 
