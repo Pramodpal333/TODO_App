@@ -136,10 +136,14 @@ class DashboardActivity : AppCompatActivity() {
 
 //              Save Task Ends
 
+
             myAdapter.onClick = {
                 etTitleUpdate.setText(it.taskTitle)
                 etPriorityUpdate.setText(it.taskPriority)
                 displayPopUp(updateDial)
+
+                val index = rvTaskArray.indexOf(it)
+                Log.i("yooooooooooooooo","what is this ${index}")
 
 
 
@@ -152,7 +156,7 @@ class DashboardActivity : AppCompatActivity() {
                   if ((updatePriority == "high" || updatePriority == "low" || updatePriority == "medium")) {
                       rvTaskArray[it.id].taskTitle = updateTitle
 
-                      Log.i("MSG","it.id")
+                      Log.i("yooooooooooooooo","what is this ${it.id}")
                       emptyImageShow(rvTaskArray)
                       refreshRecycler()
                       updateDial.dismiss()
@@ -161,6 +165,17 @@ class DashboardActivity : AppCompatActivity() {
 
 
                 }
+
+
+
+                btnDelete.setOnClickListener {
+                    if (rvTaskArray.size == 0){
+
+                    } else {
+                        rvTaskArray.removeAt(index)
+                    }
+                }
+
 
                 fun updateTask(task : String , prio: String){
                     it.taskTitle = task
