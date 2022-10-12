@@ -81,11 +81,7 @@ class DashboardActivity : AppCompatActivity() {
 //        list of Task Initialization ends
 
 
-       rvTaskArray.add(EachTask("Bath", "High"))
-       rvTaskArray.add(EachTask("Bath", "Low"))
-       rvTaskArray.add(EachTask("Bath", "Medium"))
 
-        recyclerView.adapter = myAdapter
 
         emptyImageShow(rvTaskArray)
         refreshRecycler()
@@ -157,7 +153,8 @@ class DashboardActivity : AppCompatActivity() {
 
 
                   if ((updatePriority == "high" || updatePriority == "low" || updatePriority == "medium")) {
-                      rvTaskArray[it.id].taskTitle = updateTitle
+                      rvTaskArray[index].taskTitle = updateTitle
+                      rvTaskArray[index].taskPriority = updatePriority
 
                       Log.i("yooooooooooooooo","what is this ${it.id}")
                       emptyImageShow(rvTaskArray)
